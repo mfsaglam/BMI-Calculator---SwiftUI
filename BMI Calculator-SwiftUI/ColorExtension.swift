@@ -10,6 +10,10 @@ import SwiftUI
 
 extension Color {
     
+    public static var bmiDarkerBlue: Color {
+        return Color(UIColor(red: 47/255, green: 57/255, blue: 67/255, alpha: 1.0))
+    }
+    
     public static var bmiDarkBlue: Color {
         return Color(UIColor(red: 37/255, green: 47/255, blue: 57/255, alpha: 1.0))
     }

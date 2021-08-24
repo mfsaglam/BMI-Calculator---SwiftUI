@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @State var height: Double = 1.0
     @State var weight: Double = 30.0
-    @State var age: Int = 1
+    @State var age: Int = 2
     @State var result: Double = 0.0
     
     @State var isShowingResult = false
@@ -31,14 +31,17 @@ struct ContentView: View {
         NavigationView {
             
             ZStack {
+                
                 Color.bmiDarkBlue
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
+                
                 VStack {
                     HStack {
                         GenderButton(isSelected: isMale, icon: "♂", text: "Male")
                             .onTapGesture {
                                 isMale.toggle()
                             }
+                        
                         GenderButton(isSelected: !isMale, icon: "♀", text: "Female")
                             .onTapGesture {
                                 isMale.toggle()
@@ -46,11 +49,11 @@ struct ContentView: View {
                     }
                     
                     VStack(alignment: .center, spacing: 40) {
-                        SliderView(firstMeasurement: "cm", secondMeasurement: "ft", isFirst: true, sliderValue: height, sliderRange: 1.0...3.0, decimal: 2)
+                        SliderView(firstMeasurement: "m", secondMeasurement: "ft", isFirst: true, sliderValue: height, firstSliderRange: 1.0...3.0, secondSliderRange: 3.0...10.0, decimal: 2)
                             .frame(maxHeight: 100)
-                        SliderView(firstMeasurement: "kg", secondMeasurement: "lb", isFirst: true, sliderValue: weight, sliderRange: 30.0...175.0, decimal: 1)
+                        SliderView(firstMeasurement: "kg", secondMeasurement: "lb", isFirst: true, sliderValue: weight, firstSliderRange: 30.0...175.0, secondSliderRange: 60.0...385.0, decimal: 1)
                             .frame(maxHeight: 100)
-                        SliderView(firstMeasurement: "age", secondMeasurement: nil, sliderValue: Double(age), sliderRange: 1.0...100.0, decimal: 0)
+                        SliderView(firstMeasurement: "age", secondMeasurement: nil, sliderValue: Double(age), firstSliderRange: 2.0...120.0, secondSliderRange: nil, decimal: 0)
                             .frame(maxHeight: 100)
                         NavigationLink(
                             destination: ResultView(result: result),
@@ -73,21 +76,23 @@ struct ContentView: View {
                 }
                 .padding(.horizontal)
                 .foregroundColor(.white)
-                
             }
             .navigationTitle("BMI Calculator")
         }
-        
     }
 }
 
 
 struct SliderView: View {
+    
     let firstMeasurement: String
     let secondMeasurement: String?
+    
     @State var isFirst: Bool = true
     @State var sliderValue: Double
-    let sliderRange: ClosedRange<Double>
+    
+    let firstSliderRange: ClosedRange<Double>
+    let secondSliderRange: ClosedRange<Double>?
     let decimal: Int
     
     var body: some View {
@@ -98,19 +103,12 @@ struct SliderView: View {
             VStack {
                 HStack {
                     if secondMeasurement != nil {
-                        if isFirst {
-                            Text(firstMeasurement)
-                            Text(secondMeasurement ?? "")
-                                .foregroundColor(.bmiLightText)
-                        } else {
-                            Text(firstMeasurement)
-                                .foregroundColor(.bmiLightText)
-                            Text(secondMeasurement ?? "")
-                        }
+                        Text(firstMeasurement)
+                            .foregroundColor(isFirst ? .white : .bmiLightText)
+                        Text(secondMeasurement ?? "")
+                            .foregroundColor(isFirst ? .bmiLightText : .white)
                     } else {
                         Text(firstMeasurement)
-                        Text(secondMeasurement ?? "")
-                            .foregroundColor(.bmiLightText)
                     }
                     
                     Spacer()
@@ -121,7 +119,7 @@ struct SliderView: View {
                 .onTapGesture {
                     isFirst.toggle()
                 }
-                Slider(value: $sliderValue, in: sliderRange)
+                Slider(value: $sliderValue, in: isFirst ? firstSliderRange : secondSliderRange ?? firstSliderRange)
                     .accentColor(.red)
             }
             .padding()
@@ -135,34 +133,18 @@ struct GenderButton: View {
     var text: String
     var body: some View {
         ZStack {
-            if isSelected {
-                Rectangle()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .cornerRadius(30)
-                    .padding()
-                    .foregroundColor(.bmiLightBlue)
-            } else {
-                Rectangle()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .cornerRadius(30)
-                    .padding()
-                    .foregroundColor(.bmiLighterBlue)
-            }
+            Rectangle()
+                .frame(width: 150, height: 150, alignment: .center)
+                .cornerRadius(30)
+                .padding()
+                .foregroundColor(isSelected ? .bmiLightBlue : .bmiLighterBlue)
             
             VStack(alignment: .center) {
-                if isSelected {
-                    Text(icon)
-                        .font(.system(size: 60))
-                        .foregroundColor(.bmiLightText)
-                    Text(text)
-                        .foregroundColor(.bmiLightText)
-                } else {
-                    Text(icon)
-                        .font(.system(size: 60))
-                        .foregroundColor(.white)
-                    Text(text)
-                        .foregroundColor(.white)
-                }
+                Text(icon)
+                    .font(.system(size: 60))
+                    .foregroundColor(isSelected ? .bmiLightText : .white)
+                Text(text)
+                    .foregroundColor(isSelected ? .bmiLightText : .white)
             }
         }
     }
