@@ -14,7 +14,7 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         //Use this if NavigationBarTitle is with displayMode = .inline
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     @State var height: Double = 1.0
@@ -49,7 +49,7 @@ struct ContentView: View {
                     }
                     
                     VStack(alignment: .center, spacing: 40) {
-                        SliderView(firstMeasurement: "m", secondMeasurement: "ft", isFirst: true, sliderValue: height, firstSliderRange: 1.0...3.0, secondSliderRange: 3.0...10.0, decimal: 2)
+                        SliderView(firstMeasurement: "m", secondMeasurement: "ft", isFirst: true, sliderValue: height, firstSliderRange: 1.0...2.5, secondSliderRange: 3.0...10.0, decimal: 2)
                             .frame(maxHeight: 100)
                         SliderView(firstMeasurement: "kg", secondMeasurement: "lb", isFirst: true, sliderValue: weight, firstSliderRange: 30.0...175.0, secondSliderRange: 60.0...385.0, decimal: 1)
                             .frame(maxHeight: 100)
@@ -138,13 +138,16 @@ struct GenderButton: View {
                 .cornerRadius(30)
                 .padding()
                 .foregroundColor(isSelected ? .bmiLightBlue : .bmiLighterBlue)
+                .animation(.easeIn(duration: 0.1))
             
             VStack(alignment: .center) {
                 Text(icon)
                     .font(.system(size: 60))
                     .foregroundColor(isSelected ? .bmiLightText : .white)
+                    .animation(Animation.easeIn(duration: 0.1))
                 Text(text)
                     .foregroundColor(isSelected ? .bmiLightText : .white)
+                    .animation(.easeIn(duration: 0.1))
             }
         }
     }
