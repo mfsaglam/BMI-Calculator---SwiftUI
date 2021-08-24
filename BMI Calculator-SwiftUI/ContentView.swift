@@ -31,9 +31,8 @@ struct ContentView: View {
         NavigationView {
             
             ZStack {
-                Rectangle()
+                Color.bmiDarkBlue
                     .edgesIgnoringSafeArea(.all)
-                    .foregroundColor(.bmiDarkBlue)
                 VStack {
                     HStack {
                         GenderButton(isSelected: isMale, icon: "♂", text: "Male")
