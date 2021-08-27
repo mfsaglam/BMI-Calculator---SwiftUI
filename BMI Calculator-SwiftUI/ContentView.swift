@@ -55,11 +55,11 @@ struct ContentView: View {
                             .frame(maxHeight: 100)
                         SliderView(firstMeasurement: "age", secondMeasurement: nil, sliderValue: Double(age), firstSliderRange: 2.0...120.0, secondSliderRange: nil, decimal: 0)
                             .frame(maxHeight: 100)
-                        NavigationLink(
-                            destination: ResultView(result: result),
-                            isActive: $isShowingResult) {
-                            EmptyView()
-                        }
+//                        NavigationLink(
+//                            destination: ResultView(result: result),
+//                            isActive: $isShowingResult) {
+//                            EmptyView()
+//                        }
                         
                         Button("Calculate") {
                             result = weight / (height * height)
@@ -78,6 +78,9 @@ struct ContentView: View {
                 .foregroundColor(.white)
             }
             .navigationTitle("BMI Calculator")
+        }
+        .sheet(isPresented: self.$isShowingResult) {
+            ResultView(result: result)
         }
     }
 }
@@ -154,12 +157,17 @@ struct GenderButton: View {
 }
 
 struct ResultView: View {
-    var result: Double
+    @State var result: Double
     
     var body: some View {
-        Text("Your BMI is " + String(format: "%.1f", result))
-            .font(.title)
-            .bold()
+        ZStack {
+            Color.bmiDarkBlue
+                .ignoresSafeArea()
+            Text("Your BMI is " + String(format: "%.1f", result))
+                .font(.title)
+                .bold()
+                .foregroundColor(.white)
+        }
     }
 }
 
