@@ -11,7 +11,7 @@ import SwiftUI
 struct BMI_Calculator_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
         }
     }
 }

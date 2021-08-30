@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeScreen: View {
     
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -17,10 +17,20 @@ struct ContentView: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    lazy var viewModel = HomeScreenViewModel()
+    
     @State var height: Double = 1.0
     @State var weight: Double = 30.0
     @State var age: Int = 2
     @State var result: Double = 0.0
+    
+    var gender: BmiCalculator.Gender {
+        if isMale {
+            return .male
+        } else {
+            return .female
+        }
+    }
     
     @State var isShowingResult = false
     @State var isMale = false
@@ -62,7 +72,7 @@ struct ContentView: View {
 //                        }
                         
                         Button("Calculate") {
-                            result = weight / (height * height)
+                            //viewModel.getBmiResult(height: height, weight: weight)
                             isShowingResult = true
                         }
                         .padding(.horizontal)
@@ -175,7 +185,7 @@ struct ResultView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            HomeScreen()
             
         }
     }
