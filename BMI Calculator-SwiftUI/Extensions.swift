@@ -1,5 +1,5 @@
 //
-//  ColorExtension.swift
+//  Extensions.swift
 //  BMI Calculator-SwiftUI
 //
 //  Created by Fatih Sağlam on 23.08.2021.

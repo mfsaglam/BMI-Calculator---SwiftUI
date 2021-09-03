@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeScreen: View {
+struct HomeScreenView: View {
     
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -98,7 +98,7 @@ struct HomeScreen: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HomeScreen()
+            HomeScreenView()
         }
     }
 }
