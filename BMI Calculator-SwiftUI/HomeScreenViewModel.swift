@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-class HomeScreenViewModel {
-    
-    lazy var model = BmiCalculator()
-    
-    func getBmiResult(height: Double, weight: Double) -> String {
+class HomeScreenViewModel: ObservableObject {
+
+    var model = BmiCalculator()
+
+    func getBmiResult(height: Double, weight: Double) -> Double {
         let bmiResult = model.calculateBmi(height: height, weight: weight)
-        return String(format: "%.2f", bmiResult)
+        return bmiResult
+    }
+
+    func getComment(gender: BmiCalculator.Gender, age: Int, bmi: Double) -> String {
+        return model.getComment(gender: gender, age: age, bmi: bmi)
     }
 }

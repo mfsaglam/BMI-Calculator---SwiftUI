@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122A49C226DCDEFE0065C520 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A49C126DCDEFE0065C520 /* SliderView.swift */; };
+		122A49C426DCDF1E0065C520 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A49C326DCDF1E0065C520 /* ResultView.swift */; };
+		122A49C626DD015E0065C520 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A49C526DD015E0065C520 /* GenderButton.swift */; };
 		1262994726D3762E002A6D08 /* BMI_Calculator_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262994626D3762E002A6D08 /* BMI_Calculator_SwiftUIApp.swift */; };
 		1262994926D3762E002A6D08 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262994826D3762E002A6D08 /* HomeScreen.swift */; };
 		1262994B26D37630002A6D08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1262994A26D37630002A6D08 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		122A49C126DCDEFE0065C520 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		122A49C326DCDF1E0065C520 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		122A49C526DD015E0065C520 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
 		1262994326D3762E002A6D08 /* BMI Calculator-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI Calculator-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262994626D3762E002A6D08 /* BMI_Calculator_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_Calculator_SwiftUIApp.swift; sourceTree = "<group>"; };
 		1262994826D3762E002A6D08 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -60,6 +66,9 @@
 			children = (
 				1262994626D3762E002A6D08 /* BMI_Calculator_SwiftUIApp.swift */,
 				1262994826D3762E002A6D08 /* HomeScreen.swift */,
+				122A49C526DD015E0065C520 /* GenderButton.swift */,
+				122A49C326DCDF1E0065C520 /* ResultView.swift */,
+				122A49C126DCDEFE0065C520 /* SliderView.swift */,
 				12CA0C3226DA45C700C381B2 /* BmiCalculator.swift */,
 				12CA0C3426DA4AB400C381B2 /* HomeScreenViewModel.swift */,
 				1262995526D3C16A002A6D08 /* ColorExtension.swift */,
@@ -150,7 +159,10 @@
 				12CA0C3326DA45C700C381B2 /* BmiCalculator.swift in Sources */,
 				1262995626D3C16A002A6D08 /* ColorExtension.swift in Sources */,
 				1262994926D3762E002A6D08 /* HomeScreen.swift in Sources */,
+				122A49C226DCDEFE0065C520 /* SliderView.swift in Sources */,
 				1262994726D3762E002A6D08 /* BMI_Calculator_SwiftUIApp.swift in Sources */,
+				122A49C426DCDF1E0065C520 /* ResultView.swift in Sources */,
+				122A49C626DD015E0065C520 /* GenderButton.swift in Sources */,
 				12CA0C3526DA4AB400C381B2 /* HomeScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

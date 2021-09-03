@@ -30,5 +30,11 @@ extension Color {
         return Color(UIColor(red: 105/255, green: 136/255, blue: 150/255, alpha: 1.0))
     }
     
-    
 }
+
+extension Int {
+     var double: Double {
+         get { Double(self) }
+         set { self = Int(newValue) }
+     }
+ }

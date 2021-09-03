@@ -19,38 +19,46 @@ struct BmiCalculator {
         
         if gender == .female {
             if age < 20 {
-                if bmi < 15 {
+                if bmi < 18.5 {
                     return "You are underweight."
-                } else if bmi < 25 {
+                } else if bmi < 24.9 {
                     return "You have ideal weight."
-                } else {
+                } else if bmi < 29.9 {
                     return "You are overweight."
+                } else {
+                    return "You are obese."
                 }
             } else {
-                if bmi < 20 {
+                if bmi < 18.5 {
                     return "You are underweight."
-                } else if bmi < 30 {
+                } else if bmi < 24.9 {
                     return "You have ideal weight."
-                } else {
+                } else if bmi < 29.9 {
                     return "You are overweight."
+                } else {
+                    return "You are overweight"
                 }
             }
         } else {
             if age < 20 {
-                if bmi < 15 {
+                if bmi < 18.5 {
                     return "You are underweight."
-                } else if bmi < 25 {
+                } else if bmi < 24.9 {
                     return "You have ideal weight."
-                } else {
+                } else if bmi < 29.9 {
                     return "You are overweight."
+                } else {
+                    return "You are overweight"
                 }
             } else {
-                if bmi < 20 {
+                if bmi < 18.5 {
                     return "You are underweight."
-                } else if bmi < 30 {
+                } else if bmi < 24.9 {
                     return "You have ideal weight."
-                } else {
+                } else if bmi < 29.9 {
                     return "You are overweight."
+                } else {
+                    return "You are overweight"
                 }
             }
         }
@@ -60,5 +68,4 @@ struct BmiCalculator {
         case female
         case male
     }
-    
 }
