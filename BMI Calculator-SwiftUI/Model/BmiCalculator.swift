@@ -9,63 +9,68 @@ import Foundation
 
 struct BmiCalculator {
     
+    
     func calculateBmi(height: Double, weight: Double) -> Double {
-        
         let bmiResult = weight / (height * height)
+        print(bmiResult)
         return bmiResult
     }
     
-    func getComment(gender: Gender, age: Int, bmi: Double) -> String {
+    func getBmiType(gender: Gender, age: Int, bmi: Double) -> BMIResult {
         
         if gender == .female {
             if age < 20 {
                 if bmi < 18.5 {
-                    return "You are underweight."
+                    return .underweight
                 } else if bmi < 24.9 {
-                    return "You have ideal weight."
+                    return .idealWeight
                 } else if bmi < 29.9 {
-                    return "You are overweight."
+                    return .overWeight
                 } else {
-                    return "You are obese."
+                    return .obese
                 }
             } else {
                 if bmi < 18.5 {
-                    return "You are underweight."
+                    return .underweight
                 } else if bmi < 24.9 {
-                    return "You have ideal weight."
+                    return .idealWeight
                 } else if bmi < 29.9 {
-                    return "You are overweight."
+                    return .overWeight
                 } else {
-                    return "You are overweight"
+                    return .obese
                 }
             }
         } else {
             if age < 20 {
                 if bmi < 18.5 {
-                    return "You are underweight."
+                    return .underweight
                 } else if bmi < 24.9 {
-                    return "You have ideal weight."
+                    return .idealWeight
                 } else if bmi < 29.9 {
-                    return "You are overweight."
+                    return .overWeight
                 } else {
-                    return "You are overweight"
+                    return .obese
                 }
             } else {
                 if bmi < 18.5 {
-                    return "You are underweight."
+                    return .underweight
                 } else if bmi < 24.9 {
-                    return "You have ideal weight."
+                    return .idealWeight
                 } else if bmi < 29.9 {
-                    return "You are overweight."
+                    return .overWeight
                 } else {
-                    return "You are overweight"
+                    return .obese
                 }
             }
         }
     }
-    
-    enum Gender {
-        case female
-        case male
-    }
+}
+
+enum Gender {
+    case female
+    case male
+}
+
+enum BMIResult {
+    case underweight, idealWeight, overWeight, obese
 }

@@ -37,7 +37,7 @@ struct SliderView: View {
                     
                     Spacer()
                     Text(String(format: "%.\(decimal)f", sliderValue))
-                        .font(.largeTitle)
+                        .font(.system(.body, design: .monospaced))
                         .bold()
                 }
                 .onTapGesture {

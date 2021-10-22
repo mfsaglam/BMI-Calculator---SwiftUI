@@ -11,8 +11,7 @@ struct ResultView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var comment: String
-    @Binding var result: Double
+    @EnvironmentObject var viewModel: HomeScreenViewModel
     
     var body: some View {
         ZStack {
@@ -20,11 +19,11 @@ struct ResultView: View {
                 .ignoresSafeArea()
             VStack(spacing: 40.0) {
                 Spacer()
-                Text("Your BMI is " + String(format: "%.1f", result))
+                Text("Your BMI is " + String(format: "%.0f", viewModel.result))
                     .font(.title)
                     .bold()
                     .foregroundColor(.white)
-                Text("\(comment)")
+                Text("\(viewModel.comment)")
                     .font(.title)
                     .bold()
                     .foregroundColor(.white)
@@ -50,6 +49,6 @@ struct ResultView: View {
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(comment: .constant("Your weight is pretty good."), result: .constant(30.0))
+        ResultView()
     }
 }
